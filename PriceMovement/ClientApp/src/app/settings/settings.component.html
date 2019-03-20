@@ -1,0 +1,43 @@
+<h5>Settings</h5>
+<br />
+<div>
+  <h6>Selection criteria:</h6>
+  <br />
+  <div class="row">
+    <div class="form-group col-2">
+      <label class="control-label" for="dayCount">Price days: </label>
+    </div>
+    <div class="form-group col-10">
+      <kendo-numerictextbox id="dayCount" [(value)]="this.dataService.dayCount" [min]="00" [max]="100" [format]="'n0'" [autoCorrect]="autoCorrect" [spinners]="false"></kendo-numerictextbox>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-2">
+      <label class="control-label" for="urgent">Urgent: </label>
+    </div>
+    <div class="form-group col-10">
+      <kendo-numerictextbox id="urgent" [(value)]="this.dataService.urgent" [min]="00" [max]="100" [format]="'n2'" [autoCorrect]="autoCorrect" [spinners]="false"></kendo-numerictextbox>%
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-2">
+      <label class="control-label" for="staleDays">Business days exception: </label>
+    </div>
+    <div class="form-group col-10">
+      <kendo-numerictextbox id="staleDays" [(value)]="this.dataService.staleDays" [min]="00" [max]="10" [format]="'n0'" [autoCorrect]="autoCorrect" [spinners]="false"></kendo-numerictextbox>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-2">
+      <label>Default to:</label>
+    </div>
+    <div class="form-group col-1">
+      <input type="radio" name="mode" id="flat" [value]="true" [(ngModel)]="this.dataService.showFlat" class="k-radio" /><label class="k-radio-label" for="flat">Flat </label>
+    </div>
+    <div class="form-group col-9">
+      <input type="radio" name="mode" id="security" [value]="false" [(ngModel)]="this.dataService.showFlat" class="k-radio"/><label class="k-radio-label" for="security">Security</label>
+    </div>
+  </div>
+</div>

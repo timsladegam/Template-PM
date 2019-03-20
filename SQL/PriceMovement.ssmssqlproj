@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="PriceMovement">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="LDNEC1BD\ESB2008:GLOBAL\txs">
+          <Created>2019-03-12T10:40:30.533941+00:00</Created>
+          <Type>SQL</Type>
+          <Server>LDNEC1BD\ESB2008</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="LDNEC1BP\GTPS:GLOBAL\txs">
+          <Created>2019-01-29T14:47:00.7732664+00:00</Created>
+          <Type>SQL</Type>
+          <Server>LDNEC1BP\GTPS</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="MSSQ-LDNC02T\LDNC02T:GLOBAL\txs">
+          <Created>2019-02-15T11:06:55.1653943+00:00</Created>
+          <Type>SQL</Type>
+          <Server>MSSQ-LDNC02T\LDNC02T</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="MSSQ-LDNC04P\LDNC04P:GLOBAL\txs">
+          <Created>2019-02-04T15:50:41.2758513+00:00</Created>
+          <Type>SQL</Type>
+          <Server>MSSQ-LDNC04P\LDNC04P</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="GetStaticData.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LDNEC1BD\ESB2008:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LDNEC1BD\ESB2008</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>GetStaticData.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PMR.GetPriceMovementNoPrices.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LDNEC1BD\ESB2008:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LDNEC1BD\ESB2008</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>PMR.GetPriceMovementNoPrices.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PMR.GetStaleYields.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LDNEC1BD\ESB2008:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LDNEC1BD\ESB2008</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>PMR.GetStaleYields.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PMR.GetUnderlying.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LDNEC1BD\ESB2008:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LDNEC1BD\ESB2008</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>PMR.GetUnderlying.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PMR.GetYieldPionts.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LDNEC1BD\ESB2008:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LDNEC1BD\ESB2008</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>PMR.GetYieldPionts.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

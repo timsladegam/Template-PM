@@ -1,0 +1,37 @@
+<div style="height: 75vh">
+  <b>Security\Portfolio Data</b>
+  <kendo-grid #securityGrid
+              [data]="ordersGridView"
+              [selectable]="true"
+              [reorderable]="true"
+              [resizable]="true"
+              [sortable]="{allowUnsort: true, mode: 'multiple'}" [sort]="gridSettings.state.sort"
+              [filterable]="gridSettings.filterable" [filter]="gridSettings.state.filter"
+              [groupable]="gridSettings.groupable" [group]="groups"
+              [columnMenu]="true"
+              [pageable]="{buttonCount: 5, info: true,type: 'input', pageSizes: [10,20,30,40,50] , previousNext: true }" [pageSize]="gridSettings.state.take" [skip]="gridSettings.state.skip"
+              (dataStateChange)="dataStateChange($event)" (groupChange)="groupChange($event)" (columnVisibilityChange)="onVisibilityChange($event)" (columnReorder)="onReorder($event)" (columnResize)="onResize($event)">
+    <ng-template kendoGridToolbarTemplate [position]="position">
+      <div class="pull-right">
+        <button [look]="'bare'" kendoButton kendoGridExcelCommand [disabled]="!ordersGridView" data-toggle="tooltip" data-placement="bottom" title="Export to Excel"><span class="k-icon k-i-file-excel"></span></button>
+        <button (click)="filterToggleClick()" [look]="'bare'" kendoButton [togglable]="true" data-toggle="tooltip" data-placement="bottom" title="Show\Hide Filter Row"><span class="k-icon k-i-filter"></span></button>
+        <button (click)="groupToggleClick()" [look]="'bare'" kendoButton [togglable]="true" data-toggle="tooltip" data-placement="bottom" title="Show\Hide Group Panel"><span class="k-icon k-i-group"></span></button>
+        <button (click)="resetClick()" [look]="'bare'" kendoButton data-toggle="tooltip" data-placement="bottom" title="Reset Columns"><span class="k-icon k-i-reset"></span></button>
+        <button (click)="refreshClick()" [look]="'bare'" kendoButton data-toggle="tooltip" data-placement="bottom" title="Refresh Data"><span class="k-icon k-i-reload"></span></button>
+      </div>
+    </ng-template>
+    <kendo-grid-column *ngFor="let col of gridSettings.columnsConfig"
+                       [field]="col.field"
+                       [title]="col.title"
+                       [width]="col._width"
+                       [filter]="col.filter"
+                       [hidden]="col.hidden"
+                       [format]="col.format">
+    </kendo-grid-column>
+    <div *kendoGridDetailTemplate="let dataItem">
+      <app-portfolio-details [securityId]="dataItem.securityId"></app-portfolio-details>
+    </div>
+    <kendo-grid-excel [fetchData]="exportData"></kendo-grid-excel>
+  </kendo-grid>
+  <div *ngIf="loading" class="k-i-loading"></div>
+</div>

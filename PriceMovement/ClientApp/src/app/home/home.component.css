@@ -1,0 +1,49 @@
+.k-i-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 64px;
+  background-color: rgba(255,255,255,.3);
+  color: #ff6757;
+}
+
+ss-multiselect-dropdown .dropdown-toggle .btn .btn-default .btn-sm {
+  font-size: 12px;
+}
+
+ss-multiselect-dropdown .dropdown-menu {
+  width: 250px;
+}
+
+ss-multiselect-dropdown .dropdown-item {
+  color: #666;
+  display: list-item;
+  font-size: 12px;
+  height: 30px;
+  width: 100%;
+  padding-left: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+ss-multiselect-dropdown .dropdown-item:hover {
+  background-color: #eee;
+  color: #141414;
+  text-decoration: none;
+}
+
+ss-multiselect-dropdown .dropdown-item .active {
+  background-color: #2196f3;
+  color: #fff;
+  text-decoration: none;
+}
+
+ss-multiselect-dropdown .search-container {
+  width: 95%;
+}
+
+ss-multiselect-dropdown .input-group-prepend {
+  display: none;
+}

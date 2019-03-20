@@ -1,0 +1,36 @@
+<header>
+  <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 text-white' style="background-color: #afa091;">
+    <div class="container">
+      <a class="navbar-brand text-white" [routerLink]='["/"]'><span class="fa fa-line-chart"></span>&nbsp;PriceMovement</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item text-white" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link text-dark" [routerLink]='["/"]'>Home</a>
+          </li>
+          <li class="nav-item text-white" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link text-dark" [routerLink]='["/settings"]'>Settings</a>
+          </li>
+          <li class="nav-item text-white dropdown" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reports
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]='["/fetch-data"]'>All records</a>
+              <a class="dropdown-item" [routerLink]='["/fetch-data", "etd"]'>Exchange Traded</a>
+              <a class="dropdown-item" [routerLink]='["/fetch-data", "otc"]'>OTC</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" [routerLink]='["/fetch-data", "urgent"]'>Urgent</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" [routerLink]='["/yield-point"]'>Yield Points</a>
+              <a class="dropdown-item" [routerLink]='["/stale-yield"]'>Stale Yields</a>
+              <a class="dropdown-item" [routerLink]='["/underlying"]'>Underlying</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

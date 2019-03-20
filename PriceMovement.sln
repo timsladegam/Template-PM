@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceMovement", "PriceMovement\PriceMovement.csproj", "{99A1E22D-1232-4D9C-8DBF-E8089D8817BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceMovement.Domain", "PriceMovement.Domain\PriceMovement.Domain.csproj", "{D4206697-5F33-4280-96F2-6AE5C20942E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceMovement.Business", "PriceMovement.Business\PriceMovement.Business.csproj", "{0F62C8B6-04E7-4D3D-9263-4CDA7CFAA8A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceMovement.Data", "PriceMovement.Data\PriceMovement.Data.csproj", "{EEDBD66A-A42E-4045-AD0A-0862C7E96D9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceMovement.Infrastructure", "PriceMovement.Infrastructure\PriceMovement.Infrastructure.csproj", "{688E0F09-56D5-4C18-A036-259D35D1C460}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{595DD6D4-4C90-42E2-854B-18FD0C723779}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		AssemblyInfo.cs = AssemblyInfo.cs
+		nuget.config = nuget.config
+		PriceMovement.ruleset = PriceMovement.ruleset
+		stylecop.json = stylecop.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{A595FF84-EC95-4FAF-8639-55C345F40E9F}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\GetStaticData.sql = SQL\GetStaticData.sql
+		SQL\PMR.GetPriceMovementNoPrices.sql = SQL\PMR.GetPriceMovementNoPrices.sql
+		SQL\PMR.GetStaleYields.sql = SQL\PMR.GetStaleYields.sql
+		SQL\PMR.GetUnderlying.sql = SQL\PMR.GetUnderlying.sql
+		SQL\PMR.GetYieldPionts.sql = SQL\PMR.GetYieldPionts.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceMovement.Business.UnitTests", "PriceMovement.Business.UnitTests\PriceMovement.Business.UnitTests.csproj", "{E8C2DA1F-1DCA-4061-BED7-787354070D32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99A1E22D-1232-4D9C-8DBF-E8089D8817BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A1E22D-1232-4D9C-8DBF-E8089D8817BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A1E22D-1232-4D9C-8DBF-E8089D8817BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A1E22D-1232-4D9C-8DBF-E8089D8817BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4206697-5F33-4280-96F2-6AE5C20942E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4206697-5F33-4280-96F2-6AE5C20942E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4206697-5F33-4280-96F2-6AE5C20942E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4206697-5F33-4280-96F2-6AE5C20942E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F62C8B6-04E7-4D3D-9263-4CDA7CFAA8A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F62C8B6-04E7-4D3D-9263-4CDA7CFAA8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F62C8B6-04E7-4D3D-9263-4CDA7CFAA8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F62C8B6-04E7-4D3D-9263-4CDA7CFAA8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEDBD66A-A42E-4045-AD0A-0862C7E96D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEDBD66A-A42E-4045-AD0A-0862C7E96D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEDBD66A-A42E-4045-AD0A-0862C7E96D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEDBD66A-A42E-4045-AD0A-0862C7E96D9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{688E0F09-56D5-4C18-A036-259D35D1C460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{688E0F09-56D5-4C18-A036-259D35D1C460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{688E0F09-56D5-4C18-A036-259D35D1C460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{688E0F09-56D5-4C18-A036-259D35D1C460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C2DA1F-1DCA-4061-BED7-787354070D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C2DA1F-1DCA-4061-BED7-787354070D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C2DA1F-1DCA-4061-BED7-787354070D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C2DA1F-1DCA-4061-BED7-787354070D32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D330C153-2463-4A14-AB12-4AFF09A24659}
+	EndGlobalSection
+EndGlobal

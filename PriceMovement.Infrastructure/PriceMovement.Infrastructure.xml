@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PriceMovement.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:PriceMovement.Business.ContainerExtensions">
+            <summary>
+            The container extensions.
+            </summary>
+        </member>
+        <member name="M:PriceMovement.Business.ContainerExtensions.RegisterInfrastructureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Register services in the DI container.
+            </summary>
+            <param name="services">The services collection.</param>
+            <returns>The updated services collection.</returns>
+        </member>
+        <member name="T:PriceMovement.Infrastructure.Logging.AppLogging">
+            <summary>
+            The application logging static.
+            </summary>
+        </member>
+        <member name="P:PriceMovement.Infrastructure.Logging.AppLogging.LoggerFactory">
+            <summary>
+            Gets the new logger factory.
+            </summary>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Logging.AppLogging.CreateLogger``1">
+            <summary>
+            Create a new Ilogger of type T.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <returns>The ILogger.</returns>
+        </member>
+        <member name="T:PriceMovement.Infrastructure.Logging.ConfigureLogging">
+            <summary>
+            Configure Serilog.
+            </summary>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Logging.ConfigureLogging.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Options.IOptions{PriceMovement.Domain.SerilogOptions},Serilog.Core.ILogEventEnricher)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PriceMovement.Infrastructure.Logging.ConfigureLogging" /> class.
+            </summary>
+            <param name="environment">The hosting environment.</param>
+            <param name="options">The Serilog config from app.settings.</param>
+            <param name="logEnricher">The log enricher.</param>
+        </member>
+        <member name="P:PriceMovement.Infrastructure.Logging.ConfigureLogging.LoggingEventLevel">
+            <summary>
+            Gets or sets the log level dynamically.
+            </summary>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Logging.ConfigureLogging.Configure">
+            <summary>
+            Configure Serilog for event sink with File, EventLog and Email sinks.
+            </summary>
+        </member>
+        <member name="T:PriceMovement.Infrastructure.Logging.IConfigureLogging">
+            <summary>
+            Configure Logging interface.
+            </summary>
+        </member>
+        <member name="P:PriceMovement.Infrastructure.Logging.IConfigureLogging.LoggingEventLevel">
+            <summary>
+            Gets or sets the log event level.
+            </summary>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Logging.IConfigureLogging.Configure">
+            <summary>
+            Configure the logging.
+            </summary>
+        </member>
+        <member name="T:PriceMovement.Infrastructure.Logging.LoggingEnricher">
+            <summary>
+            The logger enricher class.
+            </summary>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Logging.LoggingEnricher.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PriceMovement.Infrastructure.Logging.LoggingEnricher"/> class.
+            The logging enricher.
+            </summary>
+            <param name="httpContextAccessor">The HTTP context accessor.</param>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Logging.LoggingEnricher.Enrich(Serilog.Events.LogEvent,Serilog.Core.ILogEventPropertyFactory)">
+            <summary>
+            Enrich log with a correlation id and user name from the http context.
+            </summary>
+            <param name="logEvent">The log event to be enriched.</param>
+            <param name="propertyFactory">The property factory.</param>
+        </member>
+        <member name="T:PriceMovement.Infrastructure.Middleware.CorrelationIdExtensions">
+            <summary>
+            Extension methods for the CorrelationIdMiddleware.
+            </summary>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Middleware.CorrelationIdExtensions.UseCorrelationId(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Enables correlation IDs for the request.
+            </summary>
+            <param name="app">The application builder.</param>
+            <returns>Returns the application builder.</returns>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Middleware.CorrelationIdExtensions.UseCorrelationId(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.String)">
+            <summary>
+            Enables correlation IDs for the request.
+            </summary>
+            <param name="app">The application builder.</param>
+            <param name="header">The header field name to use for the correlation ID.</param>
+            <returns>Returns the application builder.</returns>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Middleware.CorrelationIdExtensions.UseCorrelationId(Microsoft.AspNetCore.Builder.IApplicationBuilder,PriceMovement.Domain.CorrelationIdOptions)">
+            <summary>
+            Enables correlation IDs for the request.
+            </summary>
+            <param name="app">The application builder.</param>
+            <param name="options">The correlation options.</param>
+            <returns>Returns the application builder.</returns>
+        </member>
+        <member name="T:PriceMovement.Infrastructure.Middleware.CorrelationIdMiddleware">
+            <summary>
+            The correlation middleware.
+            </summary>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Middleware.CorrelationIdMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Options.IOptions{PriceMovement.Domain.CorrelationIdOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PriceMovement.Infrastructure.Middleware.CorrelationIdMiddleware" /> class.
+            </summary>
+            <param name="next">The next middleware in the pipeline.</param>
+            <param name="options">The configuration options.</param>
+        </member>
+        <member name="M:PriceMovement.Infrastructure.Middleware.CorrelationIdMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Processes a request to synchronise TraceIdentifier and Correlation ID headers .
+            </summary>
+            <param name="context">The HttpContext.</param>
+            <returns>The invoked task.</returns>
+        </member>
+    </members>
+</doc>

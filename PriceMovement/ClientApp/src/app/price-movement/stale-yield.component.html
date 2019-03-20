@@ -1,0 +1,40 @@
+<h5>{{title}}</h5>
+<h6>{{criteria}}</h6>
+<br />
+<form (ngSubmit)="getPriceMovements()">
+  <p></p>
+  <div style="height: 75vh">
+    <kendo-grid [data]="ordersGridView" [selectable]="true" [reorderable]="true" [resizable]="true"
+                [sortable]="true" [sort]="state.sort"
+                [filterable]="filterable" [filter]="state.filter"
+                [groupable]="groupable" [group]="groups"
+                [reorderable]="true"
+                [columnMenu]="true"
+                [pageable]="{buttonCount: 5, info: true,type: 'input', pageSizes: [10,20,30,40,50] , previousNext: true }" [pageSize]="state.take" [skip]="state.skip"
+                (dataStateChange)="dataStateChange($event)" (groupChange)="groupChange($event)">
+      <ng-template kendoGridToolbarTemplate [position]="position">
+        <div class="pull-right">
+          <button [look]="'bare'" kendoButton kendoGridExcelCommand [disabled]="!ordersGridView" data-toggle="tooltip" data-placement="bottom" title="Export to Excel"><span class="k-icon k-i-file-excel"></span></button>
+          <button (click)="filterToggleClick()" [look]="'bare'" kendoButton [togglable]="true" data-toggle="tooltip" data-placement="bottom" title="Show\Hide Filter Row"><span class="k-icon k-i-filter"></span></button>
+          <button (click)="groupToggleClick()" [look]="'bare'" kendoButton [togglable]="true" data-toggle="tooltip" data-placement="bottom" title="Show\Hide Group Panel"><span class="k-icon k-i-group"></span></button>
+        </div>
+      </ng-template>
+      <kendo-grid-column field="securityId" title="Security Id" width="80"></kendo-grid-column>
+      <kendo-grid-column field="description" title="Description" width="200"></kendo-grid-column>
+      <kendo-grid-column field="priceCurrency" title="Price Currency" width="90"></kendo-grid-column>
+      <kendo-grid-column field="price" title="Price" width="100" format="{0:n5}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+      <kendo-grid-column field="priceDate" title="Price Date" width="80" format="{0:dd MMM yyyy}"></kendo-grid-column>
+      <kendo-grid-column field="price1d" title="Price 1d" width="100" format="{0:n5}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+      <kendo-grid-column field="factor" title="Factor" width="80"></kendo-grid-column>
+      <kendo-grid-column field="factor1d" title="Factor 1d" width="80"></kendo-grid-column>
+      <kendo-grid-column field="assetClass" title="Asset Class" width="80"></kendo-grid-column>
+      <kendo-grid-column field="assetSubClass" title="Asset SubClass" width="90"></kendo-grid-column>
+      <kendo-grid-column field="businessDaysSincePriceDate" title="Stale" width="80" [style]="{'text-align': 'right'}"></kendo-grid-column>
+      <div *kendoGridDetailTemplate="let dataItem">
+        <app-price-details [securityId]="dataItem.securityId" [forDate]="dataService.forDate" [dayCount]="dataService.dayCount"></app-price-details>
+      </div>
+      <kendo-grid-excel [fetchData]="exportData"></kendo-grid-excel>
+    </kendo-grid>
+    <div *ngIf="loading" class="k-i-loading"></div>
+  </div>
+</form>

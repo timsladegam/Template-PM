@@ -1,0 +1,14 @@
+<h5>{{title}}</h5>
+<h6>{{criteria}}</h6>
+<br/>
+<div class="row">
+  <div class="form-group col-1">
+    <label class="control-label" for="dayCount">Display: </label>
+  </div>
+  <div class="form-group col-11">
+    <kendo-switch [(ngModel)]="this.showFlat" [onLabel]="'flat'" [offLabel]="'security'" (valueChange)="onflatChanged($event)" style="width:85px"></kendo-switch>
+  </div>
+</div>
+<div *ngIf="this.showFlat; then flatBlock else securityBlock"></div>
+<ng-template #flatBlock><app-flat-data></app-flat-data></ng-template>
+<ng-template #securityBlock><app-security-data></app-security-data></ng-template>

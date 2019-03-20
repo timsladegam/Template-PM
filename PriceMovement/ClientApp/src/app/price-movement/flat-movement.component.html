@@ -1,0 +1,65 @@
+<div style="height: 75vh"><b>Flat Data</b>
+                          <kendo-grid [data]="ordersGridView" [selectable]="true"
+                                      [reorderable]="true"
+                                      [resizable]="true"
+                                      [sortable]="{allowUnsort: true, mode: 'multiple'}" [sort]="state.sort"
+                                      [filterable]="filterable" [filter]="state.filter"
+                                      [groupable]="groupable" [group]="groups"
+                                      [columnMenu]="true"
+                                      [pageable]="{buttonCount: 5, info: true,type: 'input', pageSizes: [10,20,30,40,50] , previousNext: true }" [pageSize]="state.take" [skip]="state.skip"
+                                      (dataStateChange)="dataStateChange($event)" (groupChange)="groupChange($event)">
+                            <ng-template kendoGridToolbarTemplate [position]="position">
+                              <div class="pull-right">
+                                <button [look]="'bare'" kendoButton kendoGridExcelCommand [disabled]="!ordersGridView" data-toggle="tooltip" data-placement="bottom" title="Export to Excel"><span class="k-icon k-i-file-excel"></span></button>
+                                <button (click)="filterToggleClick()" [look]="'bare'" kendoButton [togglable]="true" data-toggle="tooltip" data-placement="bottom" title="Show\Hide Filter Row"><span class="k-icon k-i-filter"></span></button>
+                                <button (click)="groupToggleClick()" [look]="'bare'" kendoButton [togglable]="true" data-toggle="tooltip" data-placement="bottom" title="Show\Hide Group Panel"><span class="k-icon k-i-group"></span></button>
+                                <button (click)="refreshClick()" [look]="'bare'" kendoButton [togglable]="true" data-toggle="tooltip" data-placement="bottom" title="Refresh Data"><span class="k-icon k-i-reload"></span></button>
+                              </div>
+                            </ng-template>
+                            <kendo-grid-column field="securityId" title="Security Id" width="120" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="description" title="Description" width="250" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="portfolio" title="Portfolio" width="110" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="assetClass" title="Asset Class" width="120" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="assetSubClass" title="Asset SubClass" width="140" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="assetType" title="Asset Type" width="120" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="assetSubtype" title="Asset Subtype" width="130" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="legType" title="Leg Type" width="130" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="nominal" title="Nominal" filter="numeric" format="{0:n0}" width="110" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="priceCurrency" title="Price Ccy" width="110" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="price" title="Price" filter="numeric" width="110" format="{0:n5}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="priceDate" title="Price Date" filter="date" width="120" format="{0:dd MMM yyyy}" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="businessDaysSincePriceDate" title="Stale" filter="numeric" width="100" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="priceSource" title="Price Source" width="130" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="price1d" title="Price 1d" filter="numeric" width="110" format="{0:n5}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="priceDate1d" title="Price Date 1d" filter="date" width="140" format="{0:dd MMM yyyy}" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="priceSource1d" title="Price Source 1d" width="140" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="priceChange" title="Price Change" filter="numeric" width="140" format="{0:P5}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="proportion" title="Proportion" filter="numeric" width="120" format="{0:n9}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="totalValueUsd" title="Total Value USD" filter="numeric" width="150" format="{0:n0}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="totalValueUsd1d" title="Total Value USD 1d" filter="numeric" width="160" format="{0:n0}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="totalValueUsd1dActual" title="Total Value USD 1d Actual" filter="numeric" width="190" format="{0:n0}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="totalValueUsdChange" title="Total Value USD Change" filter="numeric" width="180" format="{0:P5}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="portfolioNavCustom" title="Portfolio Nav Custom" filter="numeric" width="180" format="{0:n0}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="portfolioNav1dCustom" title="Portfolio Nav 1d Custom" filter="numeric" width="190" format="{0:n0}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="portfolioNav" title="Portfolio Nav" filter="numeric" width="140" format="{0:n0}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="portfolioNav1d" title="Portfolio Nav 1d" filter="numeric" width="150" format="{0:n0}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="shareOfNav" title="Share Of Nav" filter="numeric" width="130" format="{0:P5}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="shareOfNav1d" title="Share Of Nav 1d" filter="numeric" width="150" format="{0:P5}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="shareOfNavChange" title="Share Of Nav Change" filter="numeric" width="180" format="{0:P5}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="marketValueImpact" title="Market Value Impact" filter="numeric" width="170" format="{0:P10}" [headerStyle]="{'font-weight': 'bold'}" [style]="{'text-align': 'right'}"></kendo-grid-column>
+                            <kendo-grid-column field="dealingDesk" title="Dealing Desk" width="150" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column title="Stale Exception" width="200" [headerStyle]="{'font-weight': 'bold'}">
+                              <ng-template kendoGridCellTemplate let-dataItem>
+                                {{ dataItem.businessDaysSincePriceDate > this.dataService.staleDays ? "Stale Price - Over " + this.dataService.staleDays + " Days" : "" }}
+                              </ng-template>
+                            </kendo-grid-column>
+                            <kendo-grid-column field="exception" title="Exception" width="200" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <kendo-grid-column field="recordType" title="Record Type" width="120" [headerStyle]="{'font-weight': 'bold'}"></kendo-grid-column>
+                            <div *kendoGridDetailTemplate="let dataItem">
+                              <app-price-details [securityId]="dataItem.securityId" [forDate]="dataService.forDate" [dayCount]="dataService.dayCount"></app-price-details>
+                            </div>
+                            <kendo-grid-excel [fetchData]="exportData"></kendo-grid-excel>
+                          </kendo-grid>
+  <div *ngIf="loading" class="k-i-loading"></div>
+</div>
+

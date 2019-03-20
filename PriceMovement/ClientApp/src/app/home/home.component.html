@@ -1,0 +1,66 @@
+<h5>Welcome to Price Movements</h5>
+<br />
+<div class="flex-container">
+    <a href="#" class="tile gam" [routerLink]="['/fetch-data']">
+      <div><h4 class="title">All</h4></div>
+    </a>
+    <a href="#" class="tile gam" [routerLink]="['/fetch-data/etd']">
+      <div><h4 class="title">Exchange Traded</h4></div>
+    </a>
+    <a href="#" class="tile gam" [routerLink]="['/fetch-data/otc']">
+      <div><h4 class="title">OTC</h4></div>
+    </a>
+    <a href="#" class="tile gam" [routerLink]="['/fetch-data/urgent']">
+      <div><h4 class="title">Urgent Review</h4></div>
+    </a>
+    <a href="#" class="tile gam" [routerLink]="['/yield-point']">
+      <div><h4 class="title">Yield Points</h4></div>
+    </a>
+    <a href="#" class="tile gam" [routerLink]="['/stale-yield']">
+      <div><h4 class="title">Stale Yields</h4></div>
+    </a>
+    <a href="#" class="tile gam" [routerLink]="['/underlying']">
+      <div><h4 class="title">Underlying</h4></div>
+    </a>
+</div>
+<br />
+<div>
+  <h6>Selection criteria:</h6>
+  <br />
+  <div class="row">
+    <div class="form-group col-2">
+      <label class="control-label" for="assetClassD">Asset Classes: </label>
+    </div>
+    <div class="form-group col-10">
+      <ss-multiselect-dropdown [options]="this.assetClasses" [texts]="multiSelectTexts" [settings]="multiSelectSettings" [(ngModel)]="this.selectedAssetClassList"
+                               name="assetClassD" id="assetClassD" (ngModelChange)="onAssetClassChange($event)"></ss-multiselect-dropdown>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-2">
+      <label class="control-label" for="currencyList">Currencies: </label>
+    </div>
+    <div class="form-group col-10">
+      <ss-multiselect-dropdown [options]="this.currencies" [texts]="multiSelectTexts" [settings]="multiSelectSettings" [(ngModel)]="this.selectedCurrencyList"
+                               name="currencyD" id="currencyD" (ngModelChange)="onCurrencyChange($event)"></ss-multiselect-dropdown>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-2">
+      <label class="control-label" for="dealingDeskList">Dealing Desk: </label>
+    </div>
+    <div class="form-group col-10">
+      <ss-multiselect-dropdown [options]="this.dealingDesks" [texts]="multiSelectTexts" [settings]="multiSelectSettings" [(ngModel)]="this.selectedDealingDeskList"
+                               name="dealingDeskD" id="dealingDeskD" (ngModelChange)="onDealingDeskChange($event)"></ss-multiselect-dropdown>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-2">
+      <label class="control-label" for="forDate">Report Date: </label>
+    </div>
+    <div class="form-group col-10">
+      <kendo-datepicker [(value)]="this.dataService.forDatePicker" [format]="'dd/MM/yyyy'" id="forDate" name="forDate"></kendo-datepicker>
+    </div>
+  </div>
+  <div *ngIf="loading" class="k-i-loading"></div>
+</div>
